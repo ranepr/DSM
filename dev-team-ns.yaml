@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dev-team
+---
+apiVersion: infrastructure.dataservices.vmware.com/v1alpha1
+kind: InfrastructurePolicyBinding
+metadata:
+  name: ciademo
+  namespace: dev-team
+---
+apiVersion: databases.dataservices.vmware.com/v1alpha1
+kind: BackupLocationBinding
+metadata:
+  name: database-backup-localstr
+  namespace: dev-team
