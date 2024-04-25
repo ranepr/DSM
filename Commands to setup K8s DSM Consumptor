@@ -1,0 +1,91 @@
+   71  sudo su
+   72  curl -fsSL https://get.k3s.io | sh -s - --disable=servicelb --disable=traefik
+   73  systemctl status k3s
+   74  cho "### sync kubeconfig ###"
+   75  sleep 1
+   76  mkdir -p /root/.kube
+   77  cp /etc/rancher/k3s/k3s.yaml /root/.kube/config
+   78  kubectl get nodes
+   79  kubectl get pods -A
+   80  helm pull oci://projects.registry.vmware.com/dsm-consumption-operator/dsm-consumption-operator --version 1.0.0 -d consumption/ --untar
+   81  snap install helm
+   82  apt install helm
+   83  wget https://get.helm.sh/helm-v3.9.3-linux-amd64.tar.gz
+   84  helm pull oci://projects.registry.vmware.com/dsm-consumption-operator/dsm-consumption-operator --version 1.0.0 -d consumption/ --untar
+   85  tar xvf helm-v3.9.3-linux-amd64.tar.gz
+   86  sudo mv linux-amd64/helm /usr/local/bin
+   87  helm version
+   88  helm pull oci://projects.registry.vmware.com/dsm-consumption-operator/dsm-consumption-operator --version 1.0.0 -d consumption/ --untar
+   89  ls consumption/dsm-consumption-operator
+   90  kubectl create namespace dsm-consumption-operator-system
+   91  kubectl -n dsm-consumption-operator-system create secret docker-registry registry-creds   --docker-server=https://projects.registry.vmware.com   --docker-username=ignore   --docker-password=ignore
+   92  kubectl -n dsm-consumption-operator-system create secret generic dsm-auth-creds  --from-file=root_ca=root-ca  --from-literal=dsm_user=dsm-admin@corp.vmbeans.com  --from-literal=dsm_password=VMware1!  --from-literal=dsm_endpoint=https://192.168.111.65
+   93  ls -ltr
+   94  kubectl -n dsm-consumption-operator-system create secret generic dsm-auth-creds  --from-file=root_ca=provider-mgmt.crt  --from-literal=dsm_user=dsm-admin@corp.vmbeans.com  --from-literal=dsm_password=VMware1!  --from-literal=dsm_endpoint=https://192.168.111.65
+   95  vi values_override.yaml
+   96  helm install dsm-consumption-operator consumption/dsm-consumption-operator -f values_override.yaml --namespace dsm-consumption-operator-system
+   97  kubectl get pods -n dsm-consumption-operator-system
+   98  vi values_override.yaml
+   99  kubectl get psp
+  100  kubectl get psp default
+  101  ls -ltr
+  102  ls consumption/dsm-consumption-operator/templates/psp-rolebinding.yaml
+  103  cat consumption/dsm-consumption-operator/templates/psp-rolebinding.yaml
+  104  vi values_override.yaml
+  105  helm install dsm-consumption-operator consumption/dsm-consumption-operator -f values_override.yaml --namespace dsm-consumption-operator-system
+  106  vi values_override.yaml
+  107  helm install dsm-consumption-operator consumption/dsm-consumption-operator -f values_override.yaml --namespace dsm-consumption-operator-system
+  108  cat consumption/dsm-consumption-operator/values.yaml
+  109  vi values_override.yaml
+  110  helm install dsm-consumption-operator consumption/dsm-consumption-operator -f values_override.yaml --namespace dsm-consumption-operator-system
+  111  helm status dsm-consumption-operator --namespace dsm-consumption-operator-system
+  112  kubectl get all -n dsm-consumption-operator-system
+  113  vi dev-team-ns.yaml
+  114  kubectl apply -f dev-team-ns.yaml
+  115  vi dev-team-ns.yaml
+  116  kubectl apply -f dev-team-ns.yaml
+  117  kubectl get backuplocationbindings -A
+  118  kubectl get infrastructurepolicybindings -A
+  119  vi create-psql.yaml
+  120  kubectl apply -f create-psql.yaml
+  121  kubectl get pods
+  122  kubectl get pods -n dsm-consumption-operator-system
+  123  kubectl get all -n dsm-consumption-operator-system
+  124  kubectl get postgrsCluster -A
+  125  kubectl get postgresCluster -A
+  126  kubectl get ns
+  127  kubectl get postgresCluster -A
+  128  kubectl get all -n dsm-consumption-operator-system
+  129  kubectl get pods -A
+  130  kubectl get postgresCluster -A
+  131  apt-get list puthon3
+  132  apt list python3
+  133  ls -ltr
+  134  cd AriaAutomation_DataServicesManager/AriaAutomation_DataServicesManager/
+  135  ls -ltr
+  136  cat config.json
+  137  vi config.json
+  138  pip3 install -r requirements.txt
+  139  python3 install pip
+  140  apt install python3-pip
+  141  apt install perl -y
+  142  apt install python3
+  143  pip3 install -r requirements.txt
+  144  python3 aria.py
+  145  apt install perl -y
+  146  kubectl get all -n dsm-consumption-operator-system
+  147  kubectl get postgresCluster -A
+  148  kubectl delete postgresCluster pg-dev-k8s-01
+  149  kubectl delete postgresCluster pg-dev-k8s-01 -n dev-team
+  150  python3 aria.py
+  151  vi config.json
+  152  python3 aria.py
+  153  history
+  154  kubectl get postgresCluster -A
+  155  cd AriaAutomation_DataServicesManager/AriaAutomation_DataServicesManager/
+  156  vi config.json
+  157  kubectl get postgresCluster -A
+  158  kubectl apply -f create-psql.yaml
+  159  kubectl get postgresCluster -A
+  160  history
+root@ubuntu:/home/ubuntu#
